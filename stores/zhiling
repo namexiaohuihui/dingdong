@@ -1,0 +1,3 @@
+python manage.py  runserver 127.0.0.1:2727
+python manage.py makemigrations stores
+python manage.py migrate

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录</title>
+</head>
+<body>
+<div class="user_login">
+    <h3>用户登录</h3>
+    <div class="content">
+        <form method="post" action="?"> {% csrf_token %}
+            <div class="frm_cont userName">
+                <label>用户名</label>
+                <input type="text" id="userName"/>
+            </div>
+            <div class="frm_cont userPsw">
+                <label>密 码</label>
+                <input type="password" id="userPw"/>
+            </div>
+            <div class="frm_cont validate">
+                <div>
+                    <label>验证码</label>
+                    <input type="text" id="validate"/>
+                </div>
+                <div>
+                    <img src="./getcode.png" alt="验证码:3731"/>
+                </div>
+            </div>
+            <div class="frm_cont keeplogin">
+                <input type="checkbox" id="keeplogin"/>
+                <label>记住我登录的信息</label>
+            </div>
+            <div class="btns">
+                <button type="submit" class="btn_login">登录</button>
+                <a href="#" class="reg">用户注册</a>
+            </div>
+            <p>------------------------</p>
+            <div>
+                {{form.as_p}}
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

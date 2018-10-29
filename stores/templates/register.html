@@ -2,64 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!--<link rel="stylesheet" type="text/css" href="regist_css.css">-->
-    <style type="text/css">
-        input.form-control{
-            margin-right:10px;
-            width:150px;
-            height:20px;
-            line-height:20px;
-            border:1px solid #094e87;
-            color:violet;
-	        background-color:greenyellow
-                }
-        div.form-group{
-            width:300px;
-            margin:10px auto;
-            background-color:yellow;
-            text-align:center;
-        }
-        label{
-            margin:5px auto;
-            text-aligb:right;
-            line-height:20px;
-        }
-        p.enter{
-            text-align:center;
-        }
-        p.enter input{
-            border:1px solid#369;
-            background:#6CF;
-            width:60px;
-            line-height:25px;
-            height:25px;
-            position:relativeL;
-            left:-40px;
-        }
-        form{
-            text-align:center;
-            width:500px;height:300px;
-            background-color:aqua;
-            margin:15px auto;
-        }
-        .div2{
-        width:auto;
-        margin-top:15px;
-        border:4px solid red;
-        top:100%;
-        background-color:#010236;
-        transform:translate(auto,50%);
-        /*-50%为自身宽度尺寸的一半,50%为自身高度尺寸的一半*/
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="statics/css/regist_css.css">
     <title>{{ form_obj.title_top.label }}</title>
 </head>
 
 <body>
-<div class="div1" style="width:auto;mafgin:50px;padding:50px;direction:ltr;background-color:chartreuse">
-    <!--<p>我是顶部</p>-->
+<div class="div1" >
+    <p style="text-align:center;
+    width:auto;height:auto;
+    background-color:aqua;
+    margin:15px auto;">我是顶部 </p>
 </div>
-<div class="container" style="width:100%;height:100%;margin:5px;background-color:chartreuse;">
+<div class="container" >
 
     <form action="?" method="post">{% csrf_token %}
         <fieldset style="margin:15px auto;text-align:left;width:auto;

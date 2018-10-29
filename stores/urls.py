@@ -15,10 +15,14 @@
 """
 from django.urls import path
 from . import views
-urlpatterns=[
-    path(r'register',views.register),
-    path(r'login',views.login),
-    path(r'regist',views.regist),
-    path(r'change',views.change_pass),
-    path(r'dd_login',views.dd_login),
-]
+from django.conf import settings
+from django.conf.urls.static import static
+
+urlpatterns = [
+                  path(r'register', views.register),
+                  path(r'login', views.login),
+                  path(r'regist', views.regist),
+                  path(r'change', views.change_pass),
+                  path(r'dd_login', views.dd_login),
+              ] + static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS)
+# + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

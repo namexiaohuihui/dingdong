@@ -1,3 +1,15 @@
+fieldset{
+margin:15px auto;
+text-align:left;
+width:auto;
+-moz-border-radius:5px;
+-webkit-border-radius:5px;
+}
+legend{
+padding:3px 12px;
+border:1px splid #1E7ACR;
+font-weight:bold;text-align:center;
+}
 div.container{
     width:100%;
     height:100%;
@@ -48,14 +60,5 @@ form{
     padding:50px;
     direction:ltr;
     background-color:chartreuse;
-    /*-50%为自身宽度尺寸的一半,50%为自身高度尺寸的一半*/
-}
-.div2{
-    width:auto;
-    margin-top:15px;
-    border:4px solid red;
-    top:100%;
-    background-color:#010236;
-    transform:translate(auto,50%);
     /*-50%为自身宽度尺寸的一半,50%为自身高度尺寸的一半*/
 }

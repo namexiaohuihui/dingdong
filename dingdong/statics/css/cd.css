@@ -1,0 +1,20 @@
+@charset "gb2312";
+#wanwei{
+    position:absolute;
+    top:20px;
+    left:20px;
+    width:207px;
+}
+#wamwei li{
+    list-style:none;
+    padding:6px 0 10px 0;
+}
+
+a{
+    color:#D9189F;
+    background-color:#ffffff;
+    text-decoration:underline;
+}
+a:hover{
+    color:#FC7AD5
+}

@@ -1,20 +1,103 @@
 @charset "gb2312";
-#wanwei{
-    position:absolute;
-    top:20px;
-    left:20px;
-    width:207px;
+body {
+    margin:10;
+    padding:10;
+    font:100%/1.4 verdana, Helvetica, sans-serif;
+    background-image:url(body_bg.gif);
 }
-#wamwei li{
-    list-style:none;
-    padding:6px 0 10px 0;
+h3 {
+    height:39px;
+    margin:0;
+    padding:0;
+}
+p {
+    margin:0;
+    padding:0;
 }
 
-a{
+#wanwei{
+position: absolute;
+    top: 15px;
+    left: 20px;
+}
+
+/*padding: 6px 0 10px 0; 四个值分别是 上 右 下 左*/
+#linkList{
+    width: 207px;
+}
+#linkList a{
     color:#D9189F;
     background-color:#ffffff;
     text-decoration:underline;
 }
-a:hover{
+#linkList a:hover{
     color:#FC7AD5
+}
+#linkList li {
+    list-style: none;
+    padding: 6px 0 10px 0;
+    background: url(line.gif) bottom repeat-x;
+}
+#linkList h3 span{
+    display:none;
+}
+#linkList li a {
+    padding-left: 7px;
+    background: url(link.gif) left center no-repeat;
+    text-decoration: none;
+}
+
+#linkList li a:hover { text-decoration: underline; }
+#lresources { background: url(left_bg.gif) repeat-y; }
+#lresources h3 { background: url(title_resources.gif) no-repeat; }
+
+#lresources ul {
+    margin: 0;
+    padding: 0 25px 20px 17px;
+    background: url(left_bottom.gif) bottom no-repeat;
+}
+
+
+#quickSummary{
+    width:546px;
+    background-color:#ffffff;
+    background-repeat:repeat-y;
+    margin:0 0 2px 226px;
+    color:#454545;
+    display:block;
+    padding:0;
+}
+/*display:block;此元素将显示为块级元素，此元素前后会带有换行符。*/
+#quickSummary p span {
+    padding:0 15px 10px 77px;
+    display:block;
+}
+/*css里面使用静态文件,传入css相同目录即可*/
+#quickSummary .p1 span {
+    padding-top:14px;
+    background:url(quicksummary_top.gif) top no-repeat;
+}
+#quickSummary .p2 span {
+    padding-bottom:20px;
+    background:url(right_bottom.gif) bottom no-repeat;
+}
+#quickSummary p {
+    background:url(right_bg.gif) right repeat-y;
+}
+/* side image */
+#quickSummary {
+    background-image:url(img_quicksummary.jpg);
+    background-position:left bottom;
+}
+#ScrollFolder{
+height:150px;
+overflow-y:scroll;
+padding: 6px 0 10px 0;
+}
+.bottom{
+width:100px;
+height:100px;
+background-color:green;
+position:absolute;
+margin: 10px 0 15px 0;
 }

@@ -1,77 +1,88 @@
 <!DOCTYPE html>
+{% extends "base.html" %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="statics/css/regist_css.css">
-    <title>{{ form_obj.title_top.label }}</title>
+    {#继承父类的标题#}
+    {% block title %}{{ form_obj.title_top.label }}{% endblock %}
+    (#继承父类的样式#)
+    {% block styles %}
+    {% if form_obj %}
+    <link rel="stylesheet" href="statics/css/regist_css.css" />
+    {% else %}
+        <link rel="stylesheet" href="css/regist_css2.css" />
+    {% endif %}
+    {% endblock %}
 </head>
 
 <body>
-<div class="div1" >
+
+{% block main %}
+<div class="div1">
     <p style="text-align:center;
     width:auto;height:auto;
     background-color:aqua;
-    margin:15px auto;">我是顶部 </p>
+    margin:15px auto;">我是顶部+1 </p>
 </div>
-<div class="container" >
+<form method="post" enctype="multipart/form-data">{% csrf_token %}
+    <fieldset >
+        <legend >
+            {{ form_obj.title_op.label }}
+        </legend>
 
-    <form action="?" method="post">{% csrf_token %}
-        <fieldset style="margin:15px auto;text-align:left;width:auto;
--moz-border-radius:5px;-webkit-border-radius:5px;">
-            <legend style="padding:3px 12px;border:1px splid #1E7ACR; font-weight:bold;text-align:center;">
-                {{ form_obj.title_op.label }}
-            </legend>
+        {# 下面的if语句是用来判断是否有错误 novalidate #}
+        {# 账号输入框的判断 #}
+        <div class="form-group name{% if form_obj.name.errors.0 %} has-error {% endif %}">
+            {# 相当于注册页面中的“帐号”（下同）#}
+            <label>
+            {{ form_obj.name.label }}
+            {{ form_obj.name }}
+            </label>
+            {# 相当于注册截图中的文本框 （下同）#}
+            <span class="help-block">{{ form_obj.name.errors.0 }}</span>
 
-            {# 下面的if语句是用来判断是否有错误 novalidate #}
-            {# 账号输入框的判断 #}
-            <div class="form-group name{% if form_obj.name.errors.0 %} has-error {% endif %}">
-                {# 相当于注册页面中的“帐号”（下同）#}
-                <label>{{ form_obj.name.label }}</label>
-                {# 相当于注册截图中的文本框 （下同）#}
-                {{ form_obj.name }}
-                <span class="help-block">{{ form_obj.name.errors.0 }}</span>
-            </div>
-            {# 密码输入框的判断 #}
-            <div class="form-group pwd  {% if form_obj.pwd.errors.0 %} has-error {% endif %}">
-                {{ form_obj.pwd.label }}
-                {{ form_obj.pwd }}
-                <span class="help-block">{{ form_obj.pwd.errors.0 }}</span>
-            </div>
+        </div>
+        {# 密码输入框的判断 #}
+        <div class="form-group pwd  {% if form_obj.pwd.errors.0 %} has-error {% endif %}">
+            {{ form_obj.pwd.label }}
+            {{ form_obj.pwd }}
+            <span class="help-block">{{ form_obj.pwd.errors.0 }}</span>
+        </div>
 
-            {# 确认密码输入框的判断 #}
-            <div class="form-group re_pwd  {% if form_obj.re_pwd.errors.0 %} has-error {% endif %}">
-                {{ form_obj.re_pwd.label }}
-                {{ form_obj.re_pwd }}
-                <span class="help-block">{{ form_obj.re_pwd.errors.0 }}</span>
-            </div>
-            {# 用户邮箱输入框的判断 #}
-            <div class="form-group email  {% if form_obj.email.errors.0 %} has-error {% endif %}">
-                {{ form_obj.email.label }}
-                {{ form_obj.email }}
-                <span class="help-block">{{ form_obj.email.errors.0 }}</span>
-            </div>
-            {# 绑定手机输入框的判断 #}
-            <div class="form-group phone  {% if form_obj.mobliphone.errors.0 %} has-error {% endif %}">
-                {{ form_obj.mobliphone.label }}
-                {{ form_obj.mobliphone }}
-                <span class="help-block">{{ form_obj.mobliphone.errors.0 }}</span>
-            </div>
-            {# 同意协议的勾选 #}
-            <div class="form-group keep  {% if form_obj.keep.errors.0 %} has-error {% endif %}">
-                {{ form_obj.keep }}
-                {{ form_obj.keep.label }}
-            </div>
-            <div class="form-group">
-                <p class="enter">
-                    <input type="submit" class="btn btn-success" value="注册">
-                </p>
-            </div>
-        </fieldset>
-    </form>
-</div>
-<!--style="width:auto;mafgin:100px;padding:50px;direction:rtl;background-color:#010236;top:100%;"-->
-<div class="div2">
-    <p>我是底部</p>
-</div>
+        {# 确认密码输入框的判断 #}
+        <div class="form-group re_pwd  {% if form_obj.re_pwd.errors.0 %} has-error {% endif %}">
+            {{ form_obj.re_pwd.label }}
+            {{ form_obj.re_pwd }}
+            <span class="help-block">{{ form_obj.re_pwd.errors.0 }}</span>
+        </div>
+        {# 用户邮箱输入框的判断 #}
+        <div class="form-group email  {% if form_obj.email.errors.0 %} has-error {% endif %}">
+            {{ form_obj.email.label }}
+            {{ form_obj.email }}
+            <span class="help-block">{{ form_obj.email.errors.0 }}</span>
+        </div>
+        {# 绑定手机输入框的判断 #}
+        <div class="form-group phone  {% if form_obj.mobliphone.errors.0 %} has-error {% endif %}">
+            {{ form_obj.mobliphone.label }}
+            {{ form_obj.mobliphone }}
+            <span class="help-block">{{ form_obj.mobliphone.errors.0 }}</span>
+        </div>
+        {# 同意协议的勾选 #}
+        <div class="form-group keep  {% if form_obj.keep.errors.0 %} has-error {% endif %}">
+            {{ form_obj.keep }}
+            {{ form_obj.keep.label }}
+        </div>
+        <div class="form-group">
+            <p class="enter">
+                <input type="submit" class="btn btn-success" value="注册">
+            </p>
+        </div>
+    </fieldset>
+</form>
+{% endblock %}
 </body>
 </html>

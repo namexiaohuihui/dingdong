@@ -78,6 +78,7 @@ def login(request):
 def change_pass(request):
     if request.method == 'POST':
         uf = ChangeForm(request.POST)
+        print(uf.is_valid())
         if uf.is_valid():
             username = uf.cleaned_data['username']
             old_password = uf.cleaned_data['old_password']
@@ -107,15 +108,8 @@ def register(request):
     if request.method == 'POST':
         # 实例化form对象的同时传入从网页通过post方式提交过来的参数
         form_obj = RegForms(request.POST)
-        # 调用form_obj校验数据的方法,判读表单信息是否通过
-        clean_name = form_obj.get("pwd")
-        print(clean_name)
         print(form_obj.is_valid())
         if form_obj.is_valid():
-            # return HttpResponse("注册成功！")
-            print(form_obj.cleaned_data)
-            # 去除字典中的re_pwd项
-            del form_obj.cleaned_data["re_pwd"]
             print(form_obj.cleaned_data)
             models.objects.objects.create(**form_obj.cleaned_data)
             return HttpResponse("注册成功！")
@@ -125,3 +119,6 @@ def register(request):
         # 实例化对象类
         form_obj = RegForms()
     return render(request, "register.html", {"form_obj": form_obj})
+
+def caidan(request):
+    return render(request, "caidan.html")

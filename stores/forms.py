@@ -103,29 +103,29 @@ class RegForms(forms.Form):
         }
     )
 
-    # 单radio值为字符串
-    gender = forms.fields.ChoiceField(
-        choices=((1, "男"), (2, "女"), (3, "保密")),
-        label="性别",
-        initial=3,
-        widget=forms.widgets.RadioSelect()
-    )
+    # # 单radio值为字符串
+    # gender = forms.fields.ChoiceField(
+    #     choices=((1, "男"), (2, "女"), (3, "保密")),
+    #     label="性别",
+    #     initial=3,
+    #     widget=forms.widgets.RadioSelect()
+    # )
 
     # 单选Select
-    hobbyc = forms.fields.ChoiceField(
-        choices=((1, "篮球"), (2, "足球"), (3, "双色球"),),
-        label="爱好",
-        initial=3,
-        widget=forms.widgets.Select()
-    )
+    # hobbyc = forms.fields.ChoiceField(
+    #     choices=((1, "篮球"), (2, "足球"), (3, "双色球"),),
+    #     label="爱好",
+    #     initial=3,
+    #     widget=forms.widgets.Select()
+    # )
 
     # 多选Select
-    hobbym = forms.fields.MultipleChoiceField(
-        choices=((1, "篮球"), (2, "足球"), (3, "双色球"),),
-        label="爱好",
-        initial=[1, 3],
-        widget=forms.widgets.SelectMultiple()
-    )
+    # hobbym = forms.fields.MultipleChoiceField(
+    #     choices=((1, "篮球"), (2, "足球"), (3, "双色球"),),
+    #     label="爱好",
+    #     initial=[1, 3],
+    #     widget=forms.widgets.SelectMultiple()
+    # )
 
     # 单选checkbox
     keep = forms.fields.ChoiceField(
@@ -138,12 +138,12 @@ class RegForms(forms.Form):
     )
 
     # 多选checkbox
-    hobby = forms.fields.MultipleChoiceField(
-        choices=((1, "篮球"), (2, "足球"), (3, "双色球"),),
-        label="爱好",
-        initial=[1, 3],
-        widget=forms.widgets.CheckboxSelectMultiple()
-    )
+    # hobby = forms.fields.MultipleChoiceField(
+    #     choices=((1, "篮球"), (2, "足球"), (3, "双色球"),),
+    #     label="爱好",
+    #     initial=[1, 3],
+    #     widget=forms.widgets.CheckboxSelectMultiple()
+    # )
 
     def clean(self):
         """
@@ -152,5 +152,10 @@ class RegForms(forms.Form):
         """
         cleaned_data = super(RegForms, self).clean()
         clean_name = cleaned_data.get("name")
-        print(clean_name)
-        raise ValidationError("输入了")
+        print("------" + clean_name)
+        from django.http import HttpResponse
+        # return HttpResponse("注册成功！")
+        # raise ValidationError("输入了")
+        from django.shortcuts import render_to_response
+        uf = ChangeForm()
+        return render_to_response('change.html', {'uf': uf})

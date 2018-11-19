@@ -31,6 +31,8 @@ ALLOWED_HOSTS = ['*']  #在这里请求的host添加了*
 # 'stores.apps.StoresConfig' 包下面apps.py中自动生成的Appconfig类
 INSTALLED_APPS = [
     'stores.apps.StoresConfig',
+    'index',
+    'user',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,6 +44,8 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    # 使用中文
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -54,7 +58,7 @@ ROOT_URLCONF = 'dingdong.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'templates'),os.path.join(BASE_DIR,'stores/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -76,7 +80,15 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    },
+    'my_sql2': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME':'Mysql_db',
+        'USER':'root',
+        'PASSWORD':'1234',
+        'HOST':'127.0.0.1',
+        'PORT':'3306',
+    },
 }
 
 # Password validation
@@ -112,6 +124,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
-#STATIC_ROOT = '/home/animation/dingdong/dingdong/statics'
 STATIC_URL = '/statics/'
-STATICFILES_DIRS = ['/home/animation/dingdong/dingdong/statics']
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'statics'),os.path.join(BASE_DIR,'stores/static')]
+STATIC_ROOT = os.path.join(BASE_DIR,'all_statics')

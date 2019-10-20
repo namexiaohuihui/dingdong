@@ -4,15 +4,12 @@
 {% get_current_language_bidi as LANGUAGE_BIDI %}
 {% spaceless %}
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>DingDOng - {% block title %}{% endblock %}</title>
     <!--<link rel="shortcut icon" href="/images/getcode.png" />-->
     {% block head_link %}{% endblock %}
-    <!--<link rel="stylesheet" type="text/css" href="/statics/css/regist_css.css" media="all" />-->
     {% block styles %}{% endblock %}
 
 </head>
@@ -25,11 +22,11 @@
         {% block main %}{% endblock %}
     </div>
     <div id="footer">
-        Powered by <a href="http://www.thewolfs.com.cn">Thewolfs Lab</a>.
+        Powered by <a href="http://127.0.0.1:8000/cd/">Thewolfs Lab</a>.
     </div>
     <div class="div2"
-         style="width:auto;margin-top:15px;border:4px solid red;top:100%;background-color:#010236;transform:translate(auto,50%);">
-        <p>我是底部</p>
+         style="width:auto;margin-top:15px;border:4px solid red;top:100%;background-color:#ddffdd;">
+        <p style="color: blueviolet;text-align:center;">我是底部</p>
     </div>
 </div>
 </body>

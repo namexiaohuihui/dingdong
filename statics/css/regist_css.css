@@ -4,10 +4,10 @@ text-align:left;
 width:auto;
 -moz-border-radius:5px;
 -webkit-border-radius:5px;
+background-image: url("../images/body_bg.gif");
 }
 legend{
 padding:3px 12px;
-border:1px splid #1E7ACR;
 font-weight:bold;text-align:center;
 }
 div.container{
@@ -45,7 +45,7 @@ p.enter input{
     width:60px;
     line-height:25px;
     height:25px;
-    position:relativeL;
+    position:relative;
     left:-40px;
 }
 form{

@@ -6,6 +6,7 @@ from stores.models import User
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from stores import models
+import csv
 
 
 # 定义URL相应函数
@@ -72,7 +73,7 @@ def login(request):
     else:
         uf = UserForm()
 
-    return render_to_response('userlogin.html', {'uf': uf})
+    return render('userlogin.html', {'uf': uf})
 
 
 def change_pass(request):
@@ -100,7 +101,7 @@ def change_pass(request):
         return HttpResponse(info)
     else:
         uf = ChangeForm()
-    return render_to_response('change.html', {'uf': uf})
+    return render('change.html', {'uf': uf})
 
 
 # 注册
@@ -118,7 +119,22 @@ def register(request):
     else:
         # 实例化对象类
         form_obj = RegForms()
+
     return render(request, "register.html", {"form_obj": form_obj})
 
-def caidan(request):
-    return render(request, "caidan.html")
+
+def store_index(request):
+    type_list = ('手机', '平板&穿戴', '通用')
+    name_list = ('荣耀', '畅玩', '华为', 'Mate','滚蛋')
+    title = '你好?'
+    # context = {'title': title, 'type_list': type_list, 'name_list': name_list}
+    print(locals())
+    return render(request, "huawei-shouye.html",context=locals(),status=200)
+
+
+def download_register(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="somefilename.csv"'
+    writer = csv.writer(response)
+    writer.writerow(['First row', 'A', 'B', 'C'])
+    return response

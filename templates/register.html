@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% extends "base.html" %}
 {% load i18n %}
+{% load staticfiles %}
 {% get_current_language as LANGUAGE_CODE %}
 {% get_available_languages as LANGUAGES %}
 {% get_current_language_bidi as LANGUAGE_BIDI %}
@@ -11,26 +12,24 @@
     {% block title %}{{ form_obj.title_top.label }}{% endblock %}
     (#继承父类的样式#)
     {% block styles %}
-    {% if form_obj %}
-    <link rel="stylesheet" href="statics/css/regist_css.css" />
-    {% else %}
-        <link rel="stylesheet" href="css/regist_css2.css" />
-    {% endif %}
+    <link rel="stylesheet" href="{% static 'css/regist_css.css' %}"/>
     {% endblock %}
 </head>
 
 <body>
-
+<p>dgrftdgh</p>
 {% block main %}
+<p>你好吗</p>
 <div class="div1">
+
     <p style="text-align:center;
     width:auto;height:auto;
     background-color:aqua;
     margin:15px auto;">我是顶部+1 </p>
 </div>
 <form method="post" enctype="multipart/form-data">{% csrf_token %}
-    <fieldset >
-        <legend >
+    <fieldset>
+        <legend>
             {{ form_obj.title_op.label }}
         </legend>
 
@@ -39,8 +38,8 @@
         <div class="form-group name{% if form_obj.name.errors.0 %} has-error {% endif %}">
             {# 相当于注册页面中的“帐号”（下同）#}
             <label>
-            {{ form_obj.name.label }}
-            {{ form_obj.name }}
+                {{ form_obj.name.label }}
+                {{ form_obj.name }}
             </label>
             {# 相当于注册截图中的文本框 （下同）#}
             <span class="help-block">{{ form_obj.name.errors.0 }}</span>
@@ -83,6 +82,10 @@
         </div>
     </fieldset>
 </form>
+<button type="button">
+    <a href="download" download="显示的下载名">按钮显示</a>
+</button>
 {% endblock %}
+
 </body>
 </html>

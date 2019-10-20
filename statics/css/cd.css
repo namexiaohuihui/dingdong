@@ -3,7 +3,7 @@ body {
     margin:10;
     padding:10;
     font:100%/1.4 verdana, Helvetica, sans-serif;
-    background-image:url(body_bg.gif);
+    background-image:url(../images/body_bg.gif);
 }
 h3 {
     height:39px;
@@ -21,7 +21,7 @@ position: absolute;
     left: 20px;
 }
 
-/*padding: 6px 0 10px 0; å››ä¸ªå€¼åˆ†åˆ«æ˜¯ ä¸Š å³ ä¸‹ å·¦*/
+/*padding: 6px 0 10px 0; ??ä¸??¼å?????? ä¸? ?? ä¸? å·?*/
 #linkList{
     width: 207px;
 }
@@ -36,25 +36,25 @@ position: absolute;
 #linkList li {
     list-style: none;
     padding: 6px 0 10px 0;
-    background: url(line.gif) bottom repeat-x;
+    background: url(../images/line.gif) bottom repeat-x;
 }
 #linkList h3 span{
     display:none;
 }
 #linkList li a {
     padding-left: 7px;
-    background: url(link.gif) left center no-repeat;
+    background: url(../images/link.gif) left center no-repeat;
     text-decoration: none;
 }
 
 #linkList li a:hover { text-decoration: underline; }
-#lresources { background: url(left_bg.gif) repeat-y; }
-#lresources h3 { background: url(title_resources.gif) no-repeat; }
+#lresources { background: url(../images/left_bg.gif) repeat-y; }
+#lresources h3 { background: url(../images/title_resources.gif) no-repeat; }
 
 #lresources ul {
     margin: 0;
     padding: 0 25px 20px 17px;
-    background: url(left_bottom.gif) bottom no-repeat;
+    background: url(../images/left_bottom.gif) bottom no-repeat;
 }
 
 
@@ -67,26 +67,26 @@ position: absolute;
     display:block;
     padding:0;
 }
-/*display:block;æ­¤å…ƒç´ å°†æ˜¾ç¤ºä¸ºå—çº§å…ƒç´ ï¼Œæ­¤å…ƒç´ å‰åä¼šå¸¦æœ‰æ¢è¡Œç¬¦ã€‚*/
+/*display:block;æ­¤å??ç´?å°??¾ç¤ºä¸ºå??çº§å??ç´?ï¼?æ­¤å??ç´?????ä¼?å¸????¢è?ç¬???*/
 #quickSummary p span {
     padding:0 15px 10px 77px;
     display:block;
 }
-/*cssé‡Œé¢ä½¿ç”¨é™æ€æ–‡ä»¶,ä¼ å…¥cssç›¸åŒç›®å½•å³å¯*/
+/*css????ä½¿ç?¨é??????ä»?,ä¼???css?¸å????å½??³å??*/
 #quickSummary .p1 span {
     padding-top:14px;
-    background:url(quicksummary_top.gif) top no-repeat;
+    background:url(../images/quicksummary_top.gif) top no-repeat;
 }
 #quickSummary .p2 span {
     padding-bottom:20px;
-    background:url(right_bottom.gif) bottom no-repeat;
+    background:url(../images/right_bottom.gif) bottom no-repeat;
 }
 #quickSummary p {
-    background:url(right_bg.gif) right repeat-y;
+    background:url(../images/right_bg.gif) right repeat-y;
 }
 /* side image */
 #quickSummary {
-    background-image:url(img_quicksummary.jpg);
+    background-image:url(../images/img_quicksummary.jpg);
     background-position:left bottom;
 }
 #ScrollFolder{
